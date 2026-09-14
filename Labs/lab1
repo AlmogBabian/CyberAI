@@ -1,0 +1,25 @@
+Discussion Questions
+Parameter added:
+NETWORK_SCAN_PORT_THRESHOLD
+
+Configured value:
+4
+
+Event that triggered a finding:
+Network scan detected from 172.18.0.20 against ports 22,80,443,3306
+
+This event triggered T1046 - Network Service Discovery because it
+contained 4 scanned ports, which is equal to the configured threshold.
+
+Event that did not trigger a finding:
+Network scan detected from 172.18.0.20 against ports 22,80
+
+This event did not trigger T1046 because it contained only 2 scanned
+ports, which is below the configured threshold of 4.
+
+Effect on false positives and false negatives:
+A lower threshold makes the detector more sensitive and may increase
+false positives.
+
+A higher threshold reduces false positives, but it may increase false
+negatives by missing low-volume reconnaissance activity.
